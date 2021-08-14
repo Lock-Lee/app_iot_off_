@@ -1,17 +1,228 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>ตั้งเวลา</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-item>
+      <ion-icon name="alarm-outline"></ion-icon>
+      <ion-label>&nbsp;ตั้งเวลาให้น้ำตัวที่ 1</ion-label>
+      <ion-toggle
+        [(ngModel)]="SW_time1"
+        (ionChange)="Sw_on1()"
+        fill="outline"
+        slot="end"
+        color="primary"
+        mode="ios"
+      ></ion-toggle>
+    </ion-item>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="5">
+          <ion-item
+            lines="none"
+            style="
+              --detail-icon-font-size: 0px;
+              --padding-end: 0px;
+              text-align: center;
+            "
+          >
+            <ion-label>&nbsp;&nbsp;&nbsp;{{ TimeStart1 }}</ion-label>
+            <ion-datetime
+              style="width: 0px; height: 0px; padding: 0px"
+              pickerFormat="HH:mm"
+              #TimeStart1_1
+              displayFormat=" "
+              (ionChange)="timeSet1('start1',TimeStart1_1.value)"
+            ></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col size="2">
+          <ion-item lines="none">
+            <label style="font-size: 16px; justify-content: center">:</label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="5">
+          <ion-item lines="none" style="text-align: center">
+            <ion-label>&nbsp;&nbsp;&nbsp;{{ TimeEnd1 }}</ion-label>
+            <ion-datetime
+              style="width: 0px; height: 0px; padding: 0px"
+              pickerFormat="HH:mm"
+              #setTimeEnd1_1
+              displayFormat=" "
+              (ionChange)="timeSet1('end1',setTimeEnd1_1.value)"
+            ></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-icon name="alarm-outline"></ion-icon>
+      <ion-label>&nbsp;ตั้งเวลาให้น้ำตัวที่ 2</ion-label>
+      <ion-toggle
+        [(ngModel)]="SW_time2"
+        (ionChange)="Sw_on2()"
+        fill="outline"
+        slot="end"
+        color="primary"
+        mode="ios"
+      ></ion-toggle>
+    </ion-item>
+
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="5">
+          <ion-item
+            lines="none"
+            style="
+              --detail-icon-font-size: 0px;
+              --padding-end: 0px;
+              text-align: center;
+            "
+          >
+            <ion-label>&nbsp;&nbsp;&nbsp;{{ TimeStart2 }}</ion-label>
+            <ion-datetime
+              style="width: 0px; height: 0px; padding: 0px"
+              pickerFormat="HH:mm"
+              #TimeStart2_1
+              displayFormat=" "
+              (ionChange)="timeSet1('start2',TimeStart2_1.value)"
+            ></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col size="2">
+          <ion-item lines="none">
+            <label style="font-size: 16px; justify-content: center">:</label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="5">
+          <ion-item lines="none" style="text-align: center">
+            <ion-label>&nbsp;&nbsp;&nbsp;{{ TimeEnd2 }}</ion-label>
+            <ion-datetime
+              style="width: 0px; height: 0px; padding: 0px"
+              pickerFormat="HH:mm"
+              #setTimeEnd2_1
+              displayFormat=" "
+              (ionChange)="timeSet1('end2',setTimeEnd2_1.value)"
+            ></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-icon name="alarm-outline"></ion-icon>
+      <ion-label>&nbsp;ตั้งเวลาให้ปุ๋ยตัวที่ 1</ion-label>
+      <ion-toggle
+        [(ngModel)]="SW_time3"
+        (ionChange)="Sw_on3()"
+        fill="outline"
+        slot="end"
+        color="primary"
+        mode="ios"
+      ></ion-toggle>
+    </ion-item>
+
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="5">
+          <ion-item
+            lines="none"
+            style="
+              --detail-icon-font-size: 0px;
+              --padding-end: 0px;
+              text-align: center;
+            "
+          >
+            <ion-label>&nbsp;&nbsp;&nbsp;{{ TimephStart1 }}</ion-label>
+            <ion-datetime
+              style="width: 0px; height: 0px; padding: 0px"
+              pickerFormat="HH:mm"
+              #TimephStart1_1
+              displayFormat=" "
+              (ionChange)="timeSetph('start1',TimephStart1_1.value)"
+            ></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col size="2">
+          <ion-item lines="none">
+            <label style="font-size: 16px; justify-content: center">:</label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="5">
+          <ion-item lines="none" style="text-align: center">
+            <ion-label>&nbsp;&nbsp;&nbsp;{{ TimephEnd1 }}</ion-label>
+            <ion-datetime
+              style="width: 0px; height: 0px; padding: 0px"
+              pickerFormat="HH:mm"
+              #TimephEnd1_1
+              displayFormat=" "
+              (ionChange)="timeSetph('end1',TimephEnd1_1.value)"
+            ></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-item>
+      <ion-icon name="alarm-outline"></ion-icon>
+      <ion-label>&nbsp; ตั้งเวลาให้ปุ๋ยตัวที่ 2</ion-label>
+      <ion-toggle
+        [(ngModel)]="SW_time4"
+        (ionChange)="Sw_on4()"
+        fill="outline"
+        slot="end"
+        color="primary"
+        mode="ios"
+      ></ion-toggle>
+    </ion-item>
+
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="5">
+          <ion-item
+            lines="none"
+            style="
+              --detail-icon-font-size: 0px;
+              --padding-end: 0px;
+              text-align: center;
+            "
+          >
+            <ion-label>&nbsp;&nbsp;&nbsp;{{ TimephStart2 }}</ion-label>
+            <ion-datetime
+              style="width: 0px; height: 0px; padding: 0px"
+              pickerFormat="HH:mm"
+              #TimephStart2_1
+              displayFormat=" "
+              (ionChange)="timeSetph('start2',TimephStart2_1.value)"
+            ></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col size="2">
+          <ion-item lines="none">
+            <label style="font-size: 16px; justify-content: center">:</label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="5">
+          <ion-item lines="none" style="text-align: center">
+            <ion-label>&nbsp;&nbsp;&nbsp;{{ TimephEnd2 }}</ion-label>
+            <ion-datetime
+              style="width: 0px; height: 0px; padding: 0px"
+              pickerFormat="HH:mm"
+              #TimephEnd2_1
+              displayFormat=" "
+              (ionChange)="timeSetph('end2',TimephEnd2_1.value)"
+            ></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

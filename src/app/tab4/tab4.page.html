@@ -1,0 +1,71 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title> รายงาน </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  ><ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item
+          >PH
+          <ion-label slot="end"> {{phstart}} to {{phend}} </ion-label>
+        </ion-item></ion-col
+      > </ion-row
+    ><ion-row>
+      <ion-col
+        ><ion-item
+          >Temp
+          <ion-label slot="end">
+            {{tempstart}} to{{tempend}}
+          </ion-label></ion-item
+        ></ion-col
+      > </ion-row
+    ><ion-row>
+      <ion-col
+        ><ion-item
+          >เวลาอัตโนมัติ
+          <ion-label slot="end"> {{timeautostart}} to{{timeautoend}}</ion-label>
+        </ion-item></ion-col
+      > </ion-row
+    ><ion-row>
+      <ion-col
+        ><ion-item
+          >เวลาให้น้ำ 1
+          <ion-label slot="end"> {{timestart1}} to{{timeend1}}</ion-label>
+        </ion-item></ion-col
+      > </ion-row
+    ><ion-row>
+      <ion-col
+        ><ion-item
+          >เวลาให้น้ำ 2
+          <ion-label slot="end"> {{timestart2}} to{{timeend2}}</ion-label>
+        </ion-item></ion-col
+      >
+    </ion-row>
+    <ion-row>
+      <ion-col
+        ><ion-item
+          >เวลาให้ปู๋ย 1
+          <ion-label slot="end"> {{timephstart1}} to{{timephend1}}</ion-label>
+        </ion-item></ion-col
+      >
+    </ion-row>
+    <ion-row>
+      <ion-col
+        ><ion-item
+          >เวลาให้ปู๋ย 2
+          <ion-label slot="end"> {{timephstart2}} to{{timephend2}}</ion-label>
+        </ion-item></ion-col
+      >
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="full" (click)="onRead()" color="tertiary"
+          >ส่ง</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

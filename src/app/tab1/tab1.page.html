@@ -1,17 +1,84 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+<div>
+  <ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+      <ion-title> หน้าหลัก </ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+</div>
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+      <div>
+        <ngx-gauge
+          [thresholds]="thresholdConfig"
+          [type]="'arch'"
+          [value]="tempShow"
+          [label]="'PH'"
+          [append]="''"
+          [size]="'120'"
+          [cap]="'round'"
+          [thick]="'8'"
+        >
+        </ngx-gauge>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <ngx-gauge
+          [thresholds]="thresholdConfig"
+          [type]="'arch'"
+          [value]="humiShow"
+          [label]="'ความชื้น'"
+          [append]="'%'"
+          [size]="'120'"
+          [cap]="'round'"
+          [thick]="'8'"
+        >
+        </ngx-gauge>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col
+        ><ion-item
+          >สถานะ
+          <ion-badge slot="end"> {{this.service.status.type }} </ion-badge>
+        </ion-item></ion-col
+      > </ion-row
+    ><ion-row>
+      <ion-col
+        ><ion-item
+          >ปั๊มตัวที่ 1
+          <ion-badge slot="end" color="success"
+            >{{this.pump1?"ทำงาน":"ไม่ทำงาน"}}</ion-badge
+          >
+        </ion-item></ion-col
+      > </ion-row
+    ><ion-row>
+      <ion-col
+        ><ion-item
+          >ปั๊มตัวที่ 2
+          <ion-badge slot="end" color="success"
+            >{{ this.pump2 ?"ทำงาน":"ไม่ทำงาน"}}</ion-badge
+          >
+        </ion-item></ion-col
+      > </ion-row
+    ><ion-row>
+      <ion-col
+        ><ion-item
+          >ปั๊มตัวที่ 3
+          <ion-badge slot="end" color="success"
+            >{{ this.pump3?"ทำงาน":"ไม่ทำงาน"}}</ion-badge
+          >
+        </ion-item></ion-col
+      > </ion-row
+    ><ion-row>
+      <ion-col
+        ><ion-item
+          >ปั๊มตัวที่ 4
+          <ion-badge slot="end" color="success"
+            >{{ this.pump4?"ทำงาน":"ไม่ทำงาน"}}</ion-badge
+          >
+        </ion-item></ion-col
+      >
+    </ion-row></ion-grid
+  >
 </ion-content>

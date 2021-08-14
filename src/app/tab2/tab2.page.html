@@ -1,17 +1,137 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>ตั้งเวลาอัติโนมัติ</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-item>
+      <ion-icon name="alarm-outline"></ion-icon>
+      <ion-label>&nbsp;ตั้งเวลาอัติโนมัติ </ion-label>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+      <ion-toggle
+        [(ngModel)]="SW_timeauto"
+        (ionChange)="Sw_on()"
+        fill="outline"
+        slot="end"
+        color="primary"
+        mode="ios"
+      ></ion-toggle>
+    </ion-item>
+
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="5">
+          <ion-item
+            lines="none"
+            style="
+              --detail-icon-font-size: 0px;
+              --padding-end: 0px;
+              text-align: center;
+            "
+          >
+            <ion-label>&nbsp;&nbsp;&nbsp;{{ TimeStartAuto }}</ion-label>
+            <ion-datetime
+              style="width: 0px; height: 0px; padding: 0px"
+              pickerFormat="HH:mm"
+              #TimeStart1_1
+              displayFormat=" "
+              (ionChange)="timeSetAuto('start1',TimeStart1_1.value)"
+            ></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col size="2">
+          <ion-item lines="none">
+            <label style="font-size: 16px; justify-content: center">:</label>
+          </ion-item>
+        </ion-col>
+        <ion-col size="5">
+          <ion-item lines="none" style="text-align: center">
+            <ion-label>&nbsp;&nbsp;&nbsp;{{ TimeEndAuto }}</ion-label>
+            <ion-datetime
+              style="width: 0px; height: 0px; padding: 0px"
+              pickerFormat="HH:mm"
+              #setTimeEnd1_1
+              displayFormat=" "
+              (ionChange)="timeSetAuto('end1',setTimeEnd1_1.value)"
+            ></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>PH 0 to 9 </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-input #phstart1 type="number" [value]="phstart"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col><center>:</center> </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-input #phend1 type="number" [value]="phend"></ion-input>
+          </ion-item>
+        </ion-col> </ion-row
+      ><br />
+      <ion-row>
+        <ion-col>
+          <center>
+            <ion-button
+              expand="full"
+              color="tertiary"
+              (click)="setph('setph',phstart1.value,phend1.value)"
+              >ส่ง</ion-button
+            >
+          </center>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Temp 0 to 100</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-input
+              type="number"
+              #tempstart1
+              [value]="tempstart"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col><center>:</center> </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-input type="number" #tempend1 [value]="tempend"></ion-input>
+          </ion-item>
+        </ion-col> </ion-row
+      ><br />
+      <ion-row>
+        <ion-col>
+          <center>
+            <ion-button
+              expand="full"
+              (click)="setph('settemp',tempstart1.value,tempend1.value)"
+              color="tertiary"
+              >ส่ง</ion-button
+            >
+          </center>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <br />
 </ion-content>
