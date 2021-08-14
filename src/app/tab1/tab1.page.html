@@ -9,6 +9,19 @@
   <ion-card>
     <ion-card-content>
       <div>
+        <ion-item>
+          <ion-label>อัติโนมัติ</ion-label>
+          <ion-toggle
+            [(ngModel)]="SW_auto"
+            (ionChange)="auto_on()"
+            fill="outline"
+            slot="end"
+            color="primary"
+            mode="ios"
+          ></ion-toggle>
+        </ion-item>
+      </div>
+      <div>
         <ngx-gauge
           [thresholds]="thresholdConfig"
           [type]="'arch'"

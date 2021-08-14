@@ -114,7 +114,12 @@ export class Tab2Page implements OnInit {
     this.fb
       .object('set/timeauto/sw1')
       .set(this.TimeStartAuto + ',' + this.TimeEndAuto + ',' + this.SW_timeauto)
-      .then(() => {});
+      .then(() => {
+        this.service.publish(
+          `/timeauto`,
+          `${this.TimeStartAuto},${this.TimeEndAuto},${this.SW_timeauto}`
+        );
+      });
 
     console.log(this.SW_timeauto);
   }

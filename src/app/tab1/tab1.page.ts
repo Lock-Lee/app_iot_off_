@@ -17,7 +17,7 @@ export class Tab1Page implements OnInit {
   public humiShow = '0';
   public phstart: any;
   public phend: any;
-
+  public SW_auto;
   public tempstart;
   public tempend;
 
@@ -51,5 +51,23 @@ export class Tab1Page implements OnInit {
   }
   ngOnInit() {
     console.log(this.service.status);
+    this.fb
+      .object('set/swauto')
+      .valueChanges()
+      .subscribe((value: any) => {
+        console.log(value);
+        this.SW_auto = value.split(',')[0];
+      });
+  }
+
+  public auto_on() {
+    this.fb
+      .object('set/swauto')
+      .set(this.SW_auto)
+      .then(() => {
+        this.service.publish(`/swauto`, `${this.SW_auto}`);
+      });
+
+    console.log(this.SW_auto);
   }
 }
