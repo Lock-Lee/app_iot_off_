@@ -16,8 +16,6 @@ export class Tab2Page implements OnInit {
   public SW_timeauto: boolean = false;
   constructor(public service: AppService, public fb: AngularFireDatabase) {
     this.service.message((val) => {
-      console.log(val);
-
       // if (val.topic == "/NUTTACIT/esp/th/read_time1") {
       //   this.readtimestart1 = `${val.message}`.split(",")[0];
       //   this.readtimeend1 = `${val.message}`.split(",")[1];
@@ -29,7 +27,6 @@ export class Tab2Page implements OnInit {
       .object('/set/timeauto/sw1')
       .valueChanges()
       .subscribe((value: any) => {
-        console.log(value);
         this.TimeStartAuto = value.split(',')[0];
         this.TimeEndAuto = value.split(',')[1];
         this.SW_timeauto = value.split(',')[2];
@@ -38,7 +35,6 @@ export class Tab2Page implements OnInit {
       .object('/set/read/setph')
       .valueChanges()
       .subscribe((value: any) => {
-        console.log(value);
         this.phstart = value.split(',')[0];
         this.phend = value.split(',')[1];
       });
@@ -46,7 +42,6 @@ export class Tab2Page implements OnInit {
       .object('/set/read/settemp')
       .valueChanges()
       .subscribe((value: any) => {
-        console.log(value);
         this.tempstart = value.split(',')[0];
         this.tempend = value.split(',')[1];
       });

@@ -30,20 +30,33 @@ export class Tab4Page implements OnInit {
   public timeautoend;
   constructor(public service: AppService, public fb: AngularFireDatabase) {
     this.service.message((val) => {
-      if (val.topic == '/NUTTACIT/esp/write_data') {
+      if (val.topic == '/NUTTACIT/esp/write_timeph') {
+        console.log(val.topic + '>' + val.message);
+
+        this.timephstart1 = `${val.message}`.split(',')[1];
+        this.timephend1 = `${val.message}`.split(',')[2];
+        this.timephstart2 = `${val.message}`.split(',')[3];
+        this.timephend2 = `${val.message}`.split(',')[4];
+      }
+      if (val.topic == '/NUTTACIT/esp/write_val') {
+        console.log(val.topic + '>' + val.message);
+
+        this.tempstart = `${val.message}`.split(',')[0];
+        this.tempend = `${val.message}`.split(',')[1];
+        this.phstart = `${val.message}`.split(',')[2];
+        this.phend = `${val.message}`.split(',')[3];
+      }
+      if (val.topic == '/NUTTACIT/esp/write_auto') {
+        console.log(val.topic + '>' + val.message);
         this.timeautostart = `${val.message}`.split(',')[0];
         this.timeautoend = `${val.message}`.split(',')[1];
-        this.timestart1 = `${val.message}`.split(',')[2];
-        this.timeend1 = `${val.message}`.split(',')[3];
-        this.timestart2 = `${val.message}`.split(',')[4];
-        this.timeend2 = `${val.message}`.split(',')[5];
-        this.timephstart1 = `${val.message}`.split(',')[6];
-        this.timephstart2 = `${val.message}`.split(',')[7];
-        this.timephend2 = `${val.message}`.split(',')[8];
-        this.phstart = `${val.message}`.split(',')[9];
-        this.phend = `${val.message}`.split(',')[10];
-        this.tempstart = `${val.message}`.split(',')[11];
-        this.tempend = `${val.message}`.split(',')[12];
+      }
+      if (val.topic == '/NUTTACIT/esp/write_time') {
+        console.log(val.topic + '>' + val.message);
+        this.timestart1 = `${val.message}`.split(',')[0];
+        this.timeend1 = `${val.message}`.split(',')[1];
+        this.timestart2 = `${val.message}`.split(',')[2];
+        this.timeend2 = `${val.message}`.split(',')[3];
       }
     });
   }

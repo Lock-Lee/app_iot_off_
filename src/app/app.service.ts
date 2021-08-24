@@ -33,7 +33,6 @@ export class AppService implements OnInit {
 
     microgear.on('present', (event) => {
       this.status = event;
-      console.log(this.status);
     });
   }
 

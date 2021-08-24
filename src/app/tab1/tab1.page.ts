@@ -56,7 +56,7 @@ export class Tab1Page implements OnInit {
       .valueChanges()
       .subscribe((value: any) => {
         console.log(value);
-        this.SW_auto = value.split(',')[0];
+        this.SW_auto = value;
       });
   }
 
