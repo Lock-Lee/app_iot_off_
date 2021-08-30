@@ -9,23 +9,10 @@
   <ion-card>
     <ion-card-content>
       <div>
-        <ion-item>
-          <ion-label>อัติโนมัติ</ion-label>
-          <ion-toggle
-            [(ngModel)]="SW_auto"
-            (ionChange)="auto_on()"
-            fill="outline"
-            slot="end"
-            color="primary"
-            mode="ios"
-          ></ion-toggle>
-        </ion-item>
-      </div>
-      <div>
         <ngx-gauge
           [thresholds]="thresholdConfig"
           [type]="'arch'"
-          [value]="tempShow"
+          [value]="PhWrite"
           [label]="'PH'"
           [append]="''"
           [size]="'120'"
@@ -37,7 +24,7 @@
         <ngx-gauge
           [thresholds]="thresholdConfig"
           [type]="'arch'"
-          [value]="humiShow"
+          [value]="Moisture"
           [label]="'ความชื้น'"
           [append]="'%'"
           [size]="'120'"
@@ -53,7 +40,9 @@
       <ion-col
         ><ion-item
           >สถานะ
-          <ion-badge slot="end"> {{this.service.status.type }} </ion-badge>
+          <ion-badge slot="end">
+            {{this.service.status.type =="online"?"online" :"offline" }}
+          </ion-badge>
         </ion-item></ion-col
       > </ion-row
     ><ion-row>
@@ -92,6 +81,13 @@
           >
         </ion-item></ion-col
       >
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="full" (click)="onRead()" color="tertiary"
+          >อ่านค่า</ion-button
+        >
+      </ion-col>
     </ion-row></ion-grid
   >
 </ion-content>

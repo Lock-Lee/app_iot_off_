@@ -13,11 +13,11 @@ var microgear = _window.Microgear.create({
   styleUrls: ['tab1.page.scss'],
 })
 export class Tab1Page implements OnInit {
-  public tempShow = '0';
-  public humiShow = '0';
+  public PhWrite = '0';
+  public Moisture = '0';
   public phstart: any;
   public phend: any;
-  public SW_auto;
+
   public tempstart;
   public tempend;
 
@@ -37,8 +37,8 @@ export class Tab1Page implements OnInit {
   constructor(public service: AppService, public fb: AngularFireDatabase) {
     this.service.message((val) => {
       if (val.topic == '/NUTTACIT/esp/th') {
-        this.tempShow = `${val.message}`.split(',')[0];
-        this.humiShow = `${val.message}`.split(',')[1];
+        this.PhWrite = `${val.message}`.split(',')[0];
+        this.Moisture = `${val.message}`.split(',')[1];
       }
       if (val.topic == '/NUTTACIT/esp/th/pump') {
         console.log(val.message);
@@ -51,23 +51,8 @@ export class Tab1Page implements OnInit {
   }
   ngOnInit() {
     console.log(this.service.status);
-    this.fb
-      .object('set/swauto')
-      .valueChanges()
-      .subscribe((value: any) => {
-        console.log(value);
-        this.SW_auto = value;
-      });
   }
-
-  public auto_on() {
-    this.fb
-      .object('set/swauto')
-      .set(this.SW_auto)
-      .then(() => {
-        this.service.publish(`/swauto`, `${this.SW_auto}`);
-      });
-
-    console.log(this.SW_auto);
+  onRead() {
+    this.service.publish(`/read_pump`, '1');
   }
 }

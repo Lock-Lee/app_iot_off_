@@ -13,6 +13,7 @@ export class Tab2Page implements OnInit {
   public phend;
   public tempstart = 0;
   public tempend = 0;
+  public SW_auto;
   public SW_timeauto: boolean = false;
   constructor(public service: AppService, public fb: AngularFireDatabase) {
     this.service.message((val) => {
@@ -22,7 +23,24 @@ export class Tab2Page implements OnInit {
       // }
     });
   }
+  public auto_on() {
+    this.fb
+      .object('set/swauto')
+      .set(this.SW_auto)
+      .then(() => {
+        this.service.publish(`/swauto`, `${this.SW_auto}`);
+      });
+
+    console.log(this.SW_auto);
+  }
   ngOnInit() {
+    this.fb
+      .object('set/swauto')
+      .valueChanges()
+      .subscribe((value: any) => {
+        console.log(value);
+        this.SW_auto = value;
+      });
     this.fb
       .object('/set/timeauto/sw1')
       .valueChanges()

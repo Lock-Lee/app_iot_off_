@@ -9,15 +9,18 @@
     <ion-item>
       <ion-icon name="alarm-outline"></ion-icon>
       <ion-label>&nbsp;ตั้งเวลาอัติโนมัติ </ion-label>
-      <!-- 
-      <ion-toggle
-        [(ngModel)]="SW_timeauto"
-        (ionChange)="Sw_on()"
-        fill="outline"
-        slot="end"
-        color="primary"
-        mode="ios"
-      ></ion-toggle> -->
+      <div>
+        <ion-item>
+          <ion-toggle
+            [(ngModel)]="SW_auto"
+            (ionChange)="auto_on()"
+            fill="outline"
+            slot="end"
+            color="primary"
+            mode="ios"
+          ></ion-toggle>
+        </ion-item>
+      </div>
     </ion-item>
 
     <ion-card-content>
