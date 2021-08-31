@@ -33,10 +33,10 @@ export class Tab4Page implements OnInit {
       if (val.topic == '/NUTTACIT/esp/write_timeph') {
         console.log(val.topic + '>' + val.message);
 
-        this.timephstart1 = `${val.message}`.split(',')[1];
-        this.timephend1 = `${val.message}`.split(',')[2];
-        this.timephstart2 = `${val.message}`.split(',')[3];
-        this.timephend2 = `${val.message}`.split(',')[4];
+        this.timephstart1 = `${val.message}`.split(',')[0];
+        this.timephend1 = `${val.message}`.split(',')[1];
+        this.timephstart2 = `${val.message}`.split(',')[2];
+        this.timephend2 = `${val.message}`.split(',')[3];
       }
       if (val.topic == '/NUTTACIT/esp/write_val') {
         console.log(val.topic + '>' + val.message);

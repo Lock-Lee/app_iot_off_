@@ -11,8 +11,8 @@ export class Tab2Page implements OnInit {
   public TimeEndAuto;
   public phstart;
   public phend;
-  public tempstart = 0;
-  public tempend = 0;
+  public Moisturestart = 0;
+  public Moisturepend = 0;
   public SW_auto;
   public SW_timeauto: boolean = false;
   constructor(public service: AppService, public fb: AngularFireDatabase) {
@@ -60,8 +60,8 @@ export class Tab2Page implements OnInit {
       .object('/set/read/settemp')
       .valueChanges()
       .subscribe((value: any) => {
-        this.tempstart = value.split(',')[0];
-        this.tempend = value.split(',')[1];
+        this.Moisturestart = value.split(',')[0];
+        this.Moisturepend = value.split(',')[1];
       });
   }
   timeSetAuto = (path, data) => {
@@ -108,17 +108,20 @@ export class Tab2Page implements OnInit {
         });
     } else {
       if (start >= 0 && start <= 100) {
-        this.tempstart = start;
+        this.Moisturestart = start;
       }
       if (end >= 0 && end <= 100) {
-        this.tempend = end;
+        this.Moisturepend = end;
       }
 
       this.fb
         .object('set/read/settemp')
-        .set(this.tempstart + ',' + this.tempend)
+        .set(this.Moisturestart + ',' + this.Moisturepend)
         .then(() => {
-          this.service.publish(`/settemp`, `${this.tempstart},${this.tempend}`);
+          this.service.publish(
+            `/settemp`,
+            `${this.Moisturestart},${this.Moisturepend}`
+          );
         });
     }
     console.log(path, start, end);

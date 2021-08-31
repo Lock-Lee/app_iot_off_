@@ -100,7 +100,7 @@
   </ion-card>
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Temp 0 to 100</ion-card-title>
+      <ion-card-title>Moisture 0 to 100</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
@@ -110,14 +110,18 @@
             <ion-input
               type="number"
               #tempstart1
-              [value]="tempstart"
+              [value]="Moisturestart"
             ></ion-input>
           </ion-item>
         </ion-col>
         <ion-col><center>:</center> </ion-col>
         <ion-col>
           <ion-item>
-            <ion-input type="number" #tempend1 [value]="tempend"></ion-input>
+            <ion-input
+              type="number"
+              #tempend1
+              [value]="Moisturepend"
+            ></ion-input>
           </ion-item>
         </ion-col> </ion-row
       ><br />
